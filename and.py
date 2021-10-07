@@ -1,5 +1,5 @@
 from utils.model import Perceptron
-from utils.all_utils import prepare_data,save_model
+from utils.all_utils import prepare_data,save_model,save_plot
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
@@ -25,3 +25,4 @@ model.fit(X,y)
 _ = model.total_loss()
 
 save_model(model,'and.model')
+save_plot(df,"and.png",model)
