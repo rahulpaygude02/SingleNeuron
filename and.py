@@ -6,23 +6,30 @@ import numpy as np
 import joblib
 from matplotlib.colors import ListedColormap
 
-AND = {
-    'x1':[0,0,1,1],
-    'x2':[0,1,0,1],
-    'y':[0,0,0,1]    
-}
+def main(data,eta,epochs):
+    
 
-df = pd.DataFrame(AND)
-df
+    df = pd.DataFrame(data)
+    df
 
-X,y = prepare_data(df)
-ETA = 0.3  #Normaly bet 0 and 1
-EPOCHS = 10
+    X,y = prepare_data(df)
+    
 
-model = Perceptron(eta=ETA, epochs=EPOCHS)
-model.fit(X,y)
+    model = Perceptron(eta=eta, epochs=epochs)
+    model.fit(X,y)
 
-_ = model.total_loss()
+    _ = model.total_loss()
 
-save_model(model,'and.model')
-save_plot(df,"and.png",model)
+    save_model(model,'and.model')
+    save_plot(df,"and.png",model)
+
+if __name__=='__main__':
+
+    AND = {
+        'x1':[0,0,1,1],
+        'x2':[0,1,0,1],
+        'y':[0,0,0,1]    
+    }
+    ETA = 0.3  #Normaly bet 0 and 1
+    EPOCHS = 10
+    main(data=AND,eta=ETA,epochs=EPOCHS)
