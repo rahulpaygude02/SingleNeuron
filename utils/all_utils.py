@@ -7,9 +7,17 @@ import os
 plt.style.use("fivethirtyeight")
 
 def prepare_data(df):
-    X = df.drop('y',axis = 1)
-    y = df['y']
-    return X,y
+  """it is used to seperate the dependent and independent features
+
+  Args:
+      df (pd.DataFrame): its a pandas DataFrame
+
+  Returns:
+      tuple: Returns a tuple of dependant and independant variables
+  """
+  X = df.drop('y',axis = 1)
+  y = df['y']
+  return X,y
 
 def save_model(model, filename):
     model_dir = 'models'
